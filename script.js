@@ -144,6 +144,7 @@ var joutguess = {
         });
     },
     init: function () {
+        this.switch_overlay('loading');
         this.ready_check = setInterval(function () {
             if (typeof Module.cwrap !== "undefined") {
                 clearInterval(joutguess.ready_check);
