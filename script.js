@@ -17,6 +17,7 @@ var joutguess = {
         window.jslinuxskiphandlers = !this.console_active;
         if(this.console_active){
             $(".overlay").hide();
+            $('#console-button').blur();
             $(".term").focus();//release focus on the button
         }else{
             this.switch_overlay('upload');
