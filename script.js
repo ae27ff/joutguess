@@ -7,6 +7,7 @@ var joutguess = {
     prompt_callbacks: [],
     console_active: false,
     switch_overlay: function (type) {
+        $("#console-button").prop("disabled", (type==="loading" || type==="processing"));//disable button while loading
         $('#upload-overlay').removeClass('overlay-drag');
         $(".overlay").hide();
         $("#" + type + "-overlay").show();
