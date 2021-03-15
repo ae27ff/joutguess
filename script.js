@@ -5,10 +5,20 @@ var joutguess = {
     jslinux: {cin: null, cout: null},
     ob: {buffer: "", buffering: false},
     prompt_callbacks: [],
+    console_active: false,
     switch_overlay: function (type) {
         $('#upload-overlay').removeClass('overlay-drag');
         $(".overlay").hide();
         $("#" + type + "-overlay").show();
+    },
+    toggle_console(){
+        this.console_active = !this.console_active;
+        window.jslinuxskiphandlers = !this.console_active;
+        if(this.console_active){
+            $(".overlay").hide();
+        }else{
+            this.switch_overlay('upload');
+        }
     },
     run_command: function (cmd, getoutput) {
         var callback = this.wait_for_prompt();
